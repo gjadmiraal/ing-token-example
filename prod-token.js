@@ -84,8 +84,8 @@ var headers = `(request-target): ${action} ${urlPath}\ndate: ${date}\ndigest: ${
 sign.update(headers);
 var headersSignature = sign.sign(privateKey, 'base64');
 
-var signature = `keyId="${keyId}",algorithm="rsa-sha256",headers="(request-target) date digest x-ing-reqid",signature="${headersSignature}"`;
-console.log(`Signature: [${signature}]`);
+var signature = `Signature keyId="${keyId}",algorithm="rsa-sha256",headers="(request-target) date digest x-ing-reqid",signature="${headersSignature}"`;
+console.log(`Authorization: [${signature}]`);
 
 var tlsCertData = fs.readFileSync(path.join(__dirname, tlsCertFile));
 var tlsKeyData = fs.readFileSync(path.join(__dirname, tlsKeyFile));
@@ -103,7 +103,7 @@ const options = {
         'Date': date,
         'Digest': digest,
         'X-ING-ReqID': xIngReqID,
-        'Signature': signature,
+        'Authorization': signature,
     }
 };
 options.agent = new https.Agent(options);
