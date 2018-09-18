@@ -1,0 +1,21 @@
+{
+  "name": "token_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prod-token.js",
+  "scripts": {
+    "start": "npm run debug",
+    "debug": "node prod-token.js",
+    "prod": "node prod-token.js prod"
+  },
+  "author": "Gert-Jan Admiraal",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "node-datetime": "^2.1.0",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
+  }
+}
